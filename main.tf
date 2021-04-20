@@ -80,5 +80,5 @@ resource "aws_cloudwatch_metric_alarm" "this_deadletter" {
   period = 60
   statistic = "Maximum"
   threshold = 1
-  treat_missing_data = "missing"
+  treat_missing_data = "notBreaching"
   }

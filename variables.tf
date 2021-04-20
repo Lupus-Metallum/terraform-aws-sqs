@@ -46,20 +46,20 @@ variable "enable_actions" {
 }
 
 variable "alarm_actions" {
-  type = list(string)
-  default = []
+  type        = list(string)
+  default     = []
   description = "List of alarm action endpoints"
 }
 
 variable "alarm_description" {
-  type = string
-  default = "Monitors for messages sent to a deadletter queue."
+  type        = string
+  default     = "Monitors for messages sent to a deadletter queue."
   description = "Description to use for the deadletter monitor"
 }
 
 variable "alarm_name" {
-  type = string
-  default = "deadletter-alarm"
+  type        = string
+  default     = "deadletter-alarm"
   description = "Description to use for the deadletter monitor"
 }
 

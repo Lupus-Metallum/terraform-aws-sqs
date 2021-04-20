@@ -38,7 +38,7 @@ data "aws_iam_policy_document" "this" {
       "kms:GenerateDataKey",
       "kms:Decrypt"
     ]
-    resources = [ "*" ]
+    resources = ["*"]
   }
 }
 
@@ -66,19 +66,19 @@ resource "aws_kms_alias" "this" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "this_deadletter" {
-  actions_enabled = var.enable_actions
-  alarm_actions = var.alarm_actions
-  alarm_description = var.alarm_description
-  alarm_name = var.alarm_name
+  actions_enabled     = var.enable_actions
+  alarm_actions       = var.alarm_actions
+  alarm_description   = var.alarm_description
+  alarm_name          = var.alarm_name
   comparison_operator = "GreaterThanOrEqualToThreshold"
   dimensions = {
     "QueueName" = aws_sqs_queue.this_deadletter.name
   }
   evaluation_periods = 1
-  metric_name = "ApproximateNumberOfMessagesVisible"
-  namespace = "AWS/SQS"
-  period = 60
-  statistic = "Maximum"
-  threshold = 1
+  metric_name        = "ApproximateNumberOfMessagesVisible"
+  namespace          = "AWS/SQS"
+  period             = 60
+  statistic          = "Maximum"
+  threshold          = 1
   treat_missing_data = "notBreaching"
-  }
+}

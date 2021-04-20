@@ -1,5 +1,5 @@
 output "kms_key_id" {
-  value = var.use_cmk == true ? aws_kms_key.this[0].key_id : "" 
+  value = var.use_cmk == true ? aws_kms_key.this[0].key_id : ""
 }
 output "kms_key_alias_name" {
   value = var.use_cmk == true ? aws_kms_alias.this[0].name : ""
